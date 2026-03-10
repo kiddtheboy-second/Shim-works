@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LANVIN COLLECTION — ARTFUL UNDONE FW 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Didact+Gothic&family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0c0b09;
+  --bone: #e8e0d0;
+  --parchment: #f5f0e8;
+  --aubergine: #1e0f1f;
+  --burgundy: #4a0e1a;
+  --gold: #c4a35a;
+  --gold-light: #d4b87a;
+  --ash: #2a2520;
+  --rust: #6b2515;
+  --slate: #1a1f2e;
+  --cream: #faf6ef;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: 'Didact Gothic', sans-serif;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* ─── GRAIN TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes revealRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes lineExpand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes unravel {
+  0%   { stroke-dashoffset: 1000; opacity: 0; }
+  30%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes brushStroke {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* ─── HEADER ─── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(12,11,9,0.95) 0%, transparent 100%);
+  animation: fadeIn 1.5s ease forwards;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.header-nav {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(232,224,208,0.35);
+  text-transform: uppercase;
+}
+
+/* ─── HERO SECTION ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--aubergine);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px 52px;
+  position: relative;
+  animation: revealLeft 1.4s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+.hero-left::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+}
+
+.hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: reveal 1s ease 0.8s both;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 0.92;
+  color: var(--bone);
+  margin-bottom: 40px;
+  animation: reveal 1.2s ease 1s both;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+  display: block;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  transform-origin: left;
+  animation: lineExpand 1s ease 1.4s both;
+  margin-bottom: 28px;
+}
+
+.hero-tagline {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(232,224,208,0.65);
+  animation: reveal 1s ease 1.6s both;
+  max-width: 320px;
+}
+
+.hero-season {
+  position: absolute;
+  top: 120px; right: -8px;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(196,163,90,0.4);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* HERO RIGHT — main silhouette */
+.hero-right {
+  background: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  animation: revealRight 1.4s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(74,14,26,0.8) 0%, rgba(30,15,31,0.6) 100%);
+}
+
+/* Undone texture strokes */
+.stroke-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+}
+
+.hero-figure {
+  position: relative;
+  z-index: 2;
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+/* ─── MANIFESTO ─── */
+.manifesto-section {
+  padding: 100px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+  border-top: 0.5px solid rgba(196,163,90,0.2);
+  animation: reveal 1s ease both;
+}
+
+.manifesto-index {
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(196,163,90,0.06);
+  line-height: 1;
+  margin-top: -20px;
+}
+
+.manifesto-content {
+  padding-top: 8px;
+}
+
+.manifesto-label {
+  font-size: 9px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.manifesto-label::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: rgba(196,163,90,0.3);
+}
+
+.manifesto-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--bone);
+  margin-bottom: 36px;
+  border-left: 1.5px solid var(--gold);
+  padding-left: 28px;
+}
+
+.manifesto-body {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  line-height: 2.4;
+  color: rgba(232,224,208,0.38);
+  text-transform: uppercase;
+  columns: 2;
+  column-gap: 40px;
+}
+
+/* ─── UNDONE CONCEPT ─── */
+.undone-section {
+  padding: 0 52px 100px;
+}
+
+.concept-label {
+  font-size: 9px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.undone-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+}
+
+.undone-card {
+  padding: 36px 24px;
+  border: 0.5px solid rgba(196,163,90,0.08);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+.undone-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0;
+  background: rgba(196,163,90,0.04);
+  transition: height 0.4s ease;
+}
+.undone-card:hover::before { height: 100%; }
+.undone-card:hover { border-color: rgba(196,163,90,0.3); }
+
+.undone-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(196,163,90,0.15);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.undone-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--bone);
+  margin-bottom: 12px;
+}
+.undone-desc {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  line-height: 2;
+  color: rgba(232,224,208,0.35);
+  text-transform: uppercase;
+}
+.undone-card-accent {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 20px; height: 1px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.4s ease;
+}
+.undone-card:hover .undone-card-accent {
+  opacity: 1;
+  width: 36px;
+}
+
+/* ─── SILHOUETTE TRIPTYCH ─── */
+.triptych {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 1px;
+  margin: 0 52px;
+  border-top: 0.5px solid rgba(196,163,90,0.15);
+  border-bottom: 0.5px solid rgba(196,163,90,0.15);
+}
+
+.triptych-card {
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.5s ease;
+}
+
+.triptych-main {
+  height: 620px;
+  background: linear-gradient(160deg, #1a0a1f 0%, #2d1020 60%, #0c0b09 100%);
+}
+.triptych-b {
+  height: 620px;
+  background: linear-gradient(180deg, #0f1520 0%, #1a2035 100%);
+}
+.triptych-c {
+  height: 620px;
+  background: linear-gradient(180deg, #1a0808 0%, #3d1010 100%);
+}
+
+.triptych-figure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.triptych-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 24px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+.triptych-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--bone);
+  margin-bottom: 4px;
+}
+.triptych-detail {
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(196,163,90,0.6);
+  text-transform: uppercase;
+}
+
+/* ─── COLOR PALETTE ─── */
+.palette-section {
+  padding: 80px 52px;
+}
+
+.palette-title {
+  font-size: 9px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.palette-strip {
+  display: flex;
+  gap: 1px;
+  margin-bottom: 20px;
+}
+
+.swatch {
+  flex: 1;
+  height: 140px;
+  position: relative;
+  cursor: pointer;
+  transition: flex 0.5s cubic-bezier(0.16,1,0.3,1), height 0.3s ease;
+  overflow: hidden;
+}
+.swatch:hover { flex: 2.5; height: 160px; }
+
+.swatch-info {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.swatch:hover .swatch-info { opacity: 1; }
+
+.swatch-name {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  display: block;
+  margin-bottom: 3px;
+}
+.swatch-fr {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+}
+
+.s1 { background: #0c0b09; border: 0.5px solid rgba(255,255,255,0.08); }
+.s2 { background: #1e0f1f; }
+.s3 { background: #4a0e1a; }
+.s4 { background: #1a2035; }
+.s5 { background: #3d1505; }
+.s6 { background: #2a1e0a; }
+.s7 { background: #c4a35a; }
+.s8 { background: #e8e0d0; }
+
+/* ─── TREND KEYWORDS ─── */
+.keywords-section {
+  padding: 60px 52px;
+  border-top: 0.5px solid rgba(196,163,90,0.1);
+  overflow: hidden;
+}
+
+.keywords-label {
+  font-size: 9px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.keywords-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  align-items: baseline;
+}
+
+.kw {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  color: rgba(232,224,208,0.1);
+  transition: color 0.4s ease;
+  cursor: default;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+.kw:hover { color: rgba(232,224,208,0.75); }
+.kw.on { color: rgba(232,224,208,0.6); }
+.kw.gold { color: rgba(196,163,90,0.7); }
+.kw.gold:hover { color: var(--gold-light); }
+.kw.sz-xl { font-size: 52px; line-height: 1; }
+.kw.sz-lg { font-size: 38px; line-height: 1.1; }
+.kw.sz-md { font-size: 26px; line-height: 1.2; }
+.kw.sz-sm { font-size: 18px; line-height: 1.4; }
+
+/* ─── FINAL STATEMENT ─── */
+.final-section {
+  padding: 100px 52px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  border-top: 0.5px solid rgba(196,163,90,0.15);
+}
+
+.final-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.final-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+.final-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.final-sub {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(232,224,208,0.5);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.final-tag {
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: rgba(196,163,90,0.45);
+  text-transform: uppercase;
+}
+
+.final-right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+}
+
+.final-block {
+  padding: 32px;
+  border: 0.5px solid rgba(196,163,90,0.1);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.final-block:hover {
+  border-color: rgba(196,163,90,0.35);
+  background: rgba(196,163,90,0.03);
+}
+
+.final-block-label {
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.final-block-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(232,224,208,0.65);
+  line-height: 1.7;
+}
+
+/* ─── FOOTER ─── */
+.site-footer {
+  padding: 28px 52px;
+  border-top: 0.5px solid rgba(196,163,90,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.footer-meta {
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(232,224,208,0.2);
+  text-align: right;
+  line-height: 2.2;
+  text-transform: uppercase;
+}
+
+/* shimmer on brand name */
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-light) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- ░░░ HEADER ░░░ -->
+<header class="site-header">
+  <div class="header-brand shimmer-text">Lanvin Collection</div>
+  <div class="header-nav">FW 2026 · Theme Direction · Moodboard</div>
+</header>
+
+
+<!-- ░░░ HERO ░░░ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-season">Fall / Winter 2026</div>
+    <div class="hero-eyebrow">— Theme Direction · 시즌 테마</div>
+    <h1 class="hero-title">
+      Artful<br>
+      <em>Undone</em>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">
+      "완성 직전이<br>가장 아름답다."<br><br>
+      <span style="font-size:14px;letter-spacing:1px;color:rgba(232,224,208,0.4)">The most beautiful moment<br>is just before completion.</span>
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <!-- Undone texture bg lines -->
+    <svg class="stroke-bg" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <line x1="0" y1="200" x2="600" y2="220" stroke="white" stroke-width="40"/>
+      <line x1="0" y1="400" x2="600" y2="380" stroke="white" stroke-width="60"/>
+      <line x1="0" y1="600" x2="600" y2="620" stroke="white" stroke-width="30"/>
+    </svg>
+
+    <div class="hero-figure">
+      <svg width="280" height="560" viewBox="0 0 280 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- HEAD -->
+        <ellipse cx="140" cy="44" rx="32" ry="36" fill="rgba(232,224,208,0.1)" stroke="rgba(196,163,90,0.15)" stroke-width="0.5"/>
+        <!-- NECK -->
+        <rect x="128" y="76" width="24" height="20" fill="rgba(232,224,208,0.08)"/>
+
+        <!-- JACKET — artful undone: one side slightly open -->
+        <!-- jacket body left -->
+        <path d="M72 94 Q48 118 45 170 Q44 205 50 225 Q85 242 140 242 L140 96 Z"
+              fill="rgba(232,224,208,0.13)" stroke="rgba(196,163,90,0.2)" stroke-width="0.5"/>
+        <!-- jacket body right — slightly undone, shifted -->
+        <path d="M208 94 Q232 118 235 170 Q236 205 230 225 Q195 242 140 242 L140 96 Z"
+              fill="rgba(232,224,208,0.09)" stroke="rgba(196,163,90,0.15)" stroke-width="0.5"/>
+
+        <!-- BROAD SHOULDER LINE — architectural -->
+        <path d="M38 102 Q72 88 140 92 Q208 88 242 102"
+              stroke="rgba(196,163,90,0.7)" stroke-width="2" fill="none"/>
+
+        <!-- LAPEL LEFT — properly open -->
+        <path d="M140 100 L110 140 L128 165 L140 148 Z"
+              fill="rgba(232,224,208,0.06)" stroke="rgba(196,163,90,0.35)" stroke-width="0.5"/>
+        <!-- LAPEL RIGHT — artfully undone, slightly open -->
+        <path d="M140 100 L172 136 L155 160 L140 148 Z"
+              fill="rgba(232,224,208,0.04)" stroke="rgba(196,163,90,0.25)" stroke-width="0.5"/>
+
+        <!-- PEPLUM FLARE -->
+        <path d="M50 222 Q38 252 36 275 Q88 292 140 290 Q192 292 244 275 Q242 252 230 222 Q195 245 140 248 Q85 245 50 222 Z"
+              fill="rgba(232,224,208,0.16)" stroke="rgba(196,163,90,0.25)" stroke-width="0.5"/>
+
+        <!-- SKIRT — long -->
+        <path d="M36 272 Q30 360 38 500 L242 500 Q250 360 244 272 Z"
+              fill="rgba(232,224,208,0.08)"/>
+
+        <!-- WAIST CINCH — dashed indicator -->
+        <line x1="48" y1="198" x2="232" y2="198"
+              stroke="rgba(196,163,90,0.3)" stroke-width="0.5" stroke-dasharray="8,4"/>
+
+        <!-- UNDONE DETAIL: loose button thread -->
+        <circle cx="140" cy="175" r="4" fill="none" stroke="rgba(196,163,90,0.4)" stroke-width="0.8"/>
+        <line x1="140" y1="179" x2="143" y2="195" stroke="rgba(196,163,90,0.3)" stroke-width="0.5"/>
+
+        <!-- UNDONE DETAIL: slightly off-shoulder right -->
+        <path d="M230 106 Q244 114 250 130"
+              stroke="rgba(232,224,208,0.25)" stroke-width="1.5" fill="none"
+              stroke-linecap="round"/>
+
+        <!-- CONSTRUCTION MARKS — artful -->
+        <line x1="18" y1="80" x2="38" y2="115" stroke="rgba(196,163,90,0.18)" stroke-width="0.5"/>
+        <line x1="252" y1="85" x2="268" y2="120" stroke="rgba(196,163,90,0.15)" stroke-width="0.5"/>
+        <circle cx="42" cy="180" r="2" fill="rgba(196,163,90,0.2)"/>
+        <circle cx="238" cy="185" r="2" fill="rgba(196,163,90,0.2)"/>
+
+        <!-- SKETCH LINES behind — partially erased feeling -->
+        <path d="M70 96 Q68 150 72 200" stroke="rgba(232,224,208,0.04)" stroke-width="3" fill="none"/>
+        <path d="M210 96 Q212 150 208 200" stroke="rgba(232,224,208,0.04)" stroke-width="3" fill="none"/>
+
+        <!-- GOLD ACCENT at hem -->
+        <line x1="60" y1="498" x2="220" y2="498" stroke="rgba(196,163,90,0.3)" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <!-- floating label -->
+    <div style="position:absolute;bottom:48px;right:36px;text-align:right">
+      <div style="font-size:8px;letter-spacing:4px;color:rgba(196,163,90,0.5);text-transform:uppercase;margin-bottom:6px">Key Silhouette</div>
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(232,224,208,0.6)">Peplum · Artful Undone</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ░░░ MANIFESTO ░░░ -->
+<section class="manifesto-section">
+  <div class="manifesto-index">26</div>
+  <div class="manifesto-content">
+    <div class="manifesto-label">Season Manifesto</div>
+    <blockquote class="manifesto-quote">
+      "우리는 더 이상 완성을 증명하지 않는다.<br>
+      흐트러지는 과정 — 단추가 하나 빠진 재킷,<br>
+      살짝 흘러내린 어깨선, 미완의 선이<br>
+      가장 대담하고 가장 예술적인 선언이다."
+    </blockquote>
+    <div class="manifesto-body">
+      Bold · Artful · Elegance<br>
+      Messy Chic의 완성<br><br>
+      Peplum의 귀환<br>
+      파워 숄더의 재건<br><br>
+      Quiet Luxury의 종말<br>
+      Chromatic Duality<br><br>
+      로맨틱과 구조의 충돌<br>
+      레더와 레이스의 공존
+    </div>
+  </div>
+</section>
+
+
+<!-- ░░░ UNDONE — 5 MEANINGS ░░░ -->
+<section class="undone-section">
+  <div class="concept-label">— "Undone" 의 다섯 가지 의미</div>
+  <div class="undone-grid">
+    <div class="undone-card" style="background:rgba(30,15,31,0.4)">
+      <div class="undone-card-accent"></div>
+      <div class="undone-num">①</div>
+      <div class="undone-title">Unbuttoned</div>
+      <div class="undone-desc">단추를<br>다 채우지<br>않은 상태</div>
+    </div>
+    <div class="undone-card" style="background:rgba(74,14,26,0.4)">
+      <div class="undone-card-accent"></div>
+      <div class="undone-num">②</div>
+      <div class="undone-title">Unfinished</div>
+      <div class="undone-desc">완성되지<br>않은<br>미완의 아름다움</div>
+    </div>
+    <div class="undone-card" style="background:rgba(26,32,53,0.4)">
+      <div class="undone-card-accent"></div>
+      <div class="undone-num">③</div>
+      <div class="undone-title">Unraveled</div>
+      <div class="undone-desc">풀려가는<br>과정의<br>우아함</div>
+    </div>
+    <div class="undone-card" style="background:rgba(42,21,5,0.4)">
+      <div class="undone-card-accent"></div>
+      <div class="undone-num">④</div>
+      <div class="undone-title">Undraped</div>
+      <div class="undone-desc">유혹적으로<br>흘러내린<br>실루엣</div>
+    </div>
+    <div class="undone-card" style="background:rgba(20,16,6,0.4)">
+      <div class="undone-card-accent"></div>
+      <div class="undone-num">⑤</div>
+      <div class="undone-title">Intentional</div>
+      <div class="undone-desc">실수가 아닌<br>계획된<br>해체</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ░░░ TRIPTYCH ░░░ -->
+<section class="triptych">
+  <!-- MAIN: Peplum Artful Undone -->
+  <div class="triptych-card triptych-main">
+    <div class="triptych-figure">
+      <svg width="240" height="500" viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="120" cy="36" rx="28" ry="30" fill="rgba(232,224,208,0.1)"/>
+        <path d="M60 64 Q38 90 36 148 Q35 182 42 200 Q80 218 120 218 Q160 218 198 200 Q205 182 204 148 Q202 90 180 64 Z"
+              fill="rgba(232,224,208,0.14)" stroke="rgba(196,163,90,0.2)" stroke-width="0.5"/>
+        <!-- peplum -->
+        <path d="M42 198 Q30 228 28 252 Q75 270 120 268 Q165 270 212 252 Q210 228 198 198 Q160 222 120 224 Q80 222 42 198 Z"
+              fill="rgba(232,224,208,0.2)" stroke="rgba(196,163,90,0.3)" stroke-width="0.8"/>
+        <!-- skirt -->
+        <path d="M28 250 Q22 350 30 470 L210 470 Q218 350 212 250 Z"
+              fill="rgba(232,224,208,0.07)"/>
+        <path d="M30 88 Q60 72 120 76 Q180 72 210 88" stroke="rgba(196,163,90,0.6)" stroke-width="1.5" fill="none"/>
+        <line x1="38" y1="172" x2="202" y2="172" stroke="rgba(196,163,90,0.25)" stroke-width="0.5" stroke-dasharray="6,3"/>
+        <!-- undone button -->
+        <circle cx="120" cy="155" r="5" fill="none" stroke="rgba(196,163,90,0.5)" stroke-width="0.8"/>
+        <line x1="120" y1="160" x2="124" y2="178" stroke="rgba(196,163,90,0.35)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="triptych-overlay">
+      <div class="triptych-name">Peplum Blazer</div>
+      <div class="triptych-detail">Dior · Alaïa · Balmain · #1 Silhouette</div>
+    </div>
+  </div>
+
+  <!-- B: Smoking Jacket -->
+  <div class="triptych-card triptych-b">
+    <div class="triptych-figure">
+      <svg width="180" height="500" viewBox="0 0 180 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="90" cy="34" rx="24" ry="26" fill="rgba(232,224,208,0.08)"/>
+        <!-- long smoking jacket -->
+        <path d="M38 58 Q18 82 16 155 Q15 195 22 215 Q56 230 90 230 Q124 230 158 215 Q165 195 164 155 Q162 82 142 58 Z"
+              fill="rgba(232,224,208,0.15)" stroke="rgba(196,163,90,0.18)" stroke-width="0.5"/>
+        <!-- silk lapels -->
+        <path d="M90 66 L68 105 L83 128 L90 118 L97 128 L112 105 Z"
+              fill="rgba(196,163,90,0.08)" stroke="rgba(196,163,90,0.4)" stroke-width="0.8"/>
+        <!-- pencil skirt tight -->
+        <path d="M22 213 Q18 310 26 460 L154 460 Q162 310 158 213 Z"
+              fill="rgba(232,224,208,0.1)"/>
+        <path d="M16 72 Q38 56 90 60 Q142 56 164 72" stroke="rgba(196,163,90,0.65)" stroke-width="2" fill="none"/>
+        <!-- pocket square slightly out — undone -->
+        <path d="M112 96 L130 90 L128 108" stroke="rgba(232,224,208,0.3)" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+    <div class="triptych-overlay">
+      <div class="triptych-name">Smoking Jacket</div>
+      <div class="triptych-detail">Saint Laurent · New Romantic</div>
+    </div>
+  </div>
+
+  <!-- C: Power Blazer -->
+  <div class="triptych-card triptych-c">
+    <div class="triptych-figure">
+      <svg width="180" height="500" viewBox="0 0 180 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="90" cy="34" rx="24" ry="26" fill="rgba(232,224,208,0.08)"/>
+        <!-- oversized boxy blazer -->
+        <path d="M28 58 Q6 80 5 158 Q5 200 15 218 L90 224 L165 218 Q175 200 175 158 Q174 80 152 58 Z"
+              fill="rgba(232,224,208,0.14)" stroke="rgba(196,163,90,0.15)" stroke-width="0.5"/>
+        <!-- extreme wide shoulder -->
+        <path d="M5 76 Q28 56 90 60 Q152 56 175 76" stroke="rgba(196,163,90,0.75)" stroke-width="2.5" fill="none"/>
+        <!-- skinny pants -->
+        <path d="M46 220 Q42 320 40 460 L70 460 Q72 360 90 310 Q108 360 110 460 L140 460 Q138 320 134 220 Z"
+              fill="rgba(232,224,208,0.14)"/>
+        <!-- belt -->
+        <rect x="44" y="216" width="92" height="9" rx="1" fill="rgba(196,163,90,0.25)"/>
+        <!-- one sleeve slightly pushed up — undone -->
+        <line x1="9" y1="140" x2="9" y2="155" stroke="rgba(232,224,208,0.25)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="triptych-overlay">
+      <div class="triptych-name">Power Blazer</div>
+      <div class="triptych-detail">Gucci · Boss · 80s Reborn</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ░░░ COLOR PALETTE ░░░ -->
+<section class="palette-section">
+  <div class="palette-title">— Color Palette · FW 2026</div>
+  <div class="palette-strip">
+    <div class="swatch s1">
+      <div class="swatch-info">
+        <span class="swatch-name">Noir Absolu</span>
+        <span class="swatch-fr">절대적 검정</span>
+      </div>
+    </div>
+    <div class="swatch s2">
+      <div class="swatch-info">
+        <span class="swatch-name">Aubergine</span>
+        <span class="swatch-fr">다크 플럼</span>
+      </div>
+    </div>
+    <div class="swatch s3">
+      <div class="swatch-info">
+        <span class="swatch-name">Sang Profond</span>
+        <span class="swatch-fr">깊은 버건디</span>
+      </div>
+    </div>
+    <div class="swatch s4">
+      <div class="swatch-info">
+        <span class="swatch-name">Nuit Bleue</span>
+        <span class="swatch-fr">일렉트릭 블루</span>
+      </div>
+    </div>
+    <div class="swatch s5">
+      <div class="swatch-info">
+        <span class="swatch-name">Braise</span>
+        <span class="swatch-fr">다크 러스트</span>
+      </div>
+    </div>
+    <div class="swatch s6">
+      <div class="swatch-info">
+        <span class="swatch-name">Terre Brûlée</span>
+        <span class="swatch-fr">번트 초콜릿</span>
+      </div>
+    </div>
+    <div class="swatch s7">
+      <div class="swatch-info">
+        <span class="swatch-name">Or Ancien</span>
+        <span class="swatch-fr">앤티크 골드</span>
+      </div>
+    </div>
+    <div class="swatch s8">
+      <div class="swatch-info">
+        <span class="swatch-name" style="color:rgba(0,0,0,0.45)">Ivoire</span>
+        <span class="swatch-fr" style="color:rgba(0,0,0,0.25)">아이보리</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:40px;margin-top:16px">
+    <div style="font-size:9px;letter-spacing:3px;color:rgba(196,163,90,0.4);text-transform:uppercase">→ 스워치 호버 시 확장</div>
+  </div>
+</section>
+
+
+<!-- ░░░ TREND KEYWORDS ░░░ -->
+<section class="keywords-section">
+  <div class="keywords-label">— FW 2026 Runway Keywords</div>
+  <div class="keywords-flow">
+    <span class="kw sz-xl on">Peplum</span>
+    <span class="kw sz-md">Power Shoulder</span>
+    <span class="kw sz-xl gold">Artful</span>
+    <span class="kw sz-sm">Sheer Lace</span>
+    <span class="kw sz-lg on">Undone</span>
+    <span class="kw sz-sm">Fluid Leather</span>
+    <span class="kw sz-xl">Velvet</span>
+    <span class="kw sz-md gold">Messy Chic</span>
+    <span class="kw sz-sm">Croc Effect</span>
+    <span class="kw sz-lg on">Basque Waist</span>
+    <span class="kw sz-sm">Tartan</span>
+    <span class="kw sz-md">Smoking</span>
+    <span class="kw sz-xl gold">Bold</span>
+    <span class="kw sz-sm">Chromatic Duality</span>
+    <span class="kw sz-lg">Romantic Power</span>
+  </div>
+</section>
+
+
+<!-- ░░░ FINAL STATEMENT ░░░ -->
+<section class="final-section">
+  <div class="final-left">
+    <div class="final-title">
+      Artful<br>
+      <em>Undone</em><br>
+      <span style="font-size:0.55em;color:rgba(232,224,208,0.3);font-style:normal">FW 2026</span>
+    </div>
+    <p class="final-sub">
+      "흐트러짐이 예술이 될 때,<br>
+      그 순간이 가장 대담한 우아함이다."
+    </p>
+    <div class="final-tag">Lanvin Collection · Fall Winter 2026</div>
+  </div>
+
+  <div class="final-right">
+    <div class="final-block">
+      <div class="final-block-label">시즌 무드</div>
+      <div class="final-block-text">
+        Quiet Luxury의 종말 —<br>
+        의도된 혼돈, 과정의 아름다움,<br>
+        완성을 거부하는 대담함.
+      </div>
+    </div>
+    <div class="final-block">
+      <div class="final-block-label">핵심 키 아이템</div>
+      <div class="final-block-text">
+        Peplum Blazer · Smoking Jacket<br>
+        Power Blazer · Fluid Leather Jacket<br>
+        <span style="font-size:13px;color:rgba(196,163,90,0.5)">— 모두 "Artfully Undone" 디테일로 연결</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ░░░ FOOTER ░░░ -->
+<footer class="site-footer">
+  <div class="footer-mark shimmer-text">Lanvin Collection</div>
+  <div class="footer-meta">
+    Artful Undone — FW 2026<br>
+    Ready-to-Wear · Theme Direction<br>
+    <span style="color:rgba(196,163,90,0.4)">Creative Moodboard</span>
+  </div>
+</footer>
+
+</body>
+</html>
